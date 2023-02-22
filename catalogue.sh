@@ -22,7 +22,7 @@ print_head "move app directory and unzip the catalogue content"
 cd /app &>>${log_file}
 unzip /tmp/catalogue.zip &>>${log_file}
 
-print_head "install catalogue"
+print_head "install nodejs dependencies"
 npm install &>>${log_file}
 
 print_head "copy catelogue service"
