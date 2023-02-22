@@ -9,6 +9,8 @@ echo -e "\e[35m move the content to html file \e[0m"
 cd /usr/share/nginx/html
 unzip /tmp/frontend.zip
 echo -e "\e[35m copy the roboshop config file \e[0m"
+pwd
+ls -l
 cp Config/nginx-roboshop.conf /etc/nginx/default.d/roboshop.conf
 
 echo -e "\e[35m enable nginx service \e[0m"
