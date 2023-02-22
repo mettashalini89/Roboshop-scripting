@@ -6,10 +6,10 @@ print_head(){
   echo -e "\e[35m $1 \e[0m"
 }
 
-print_head "35m Installing Nginx"
+print_head "Installing Nginx"
 yum install nginx -y &>>${log_file}
 
-print_head -e "remove old content if any"
+print_head "remove old content if any"
 rm -rf /usr/share/nginx/html/* &>>${log_file}
 print_head "download tha content"
 curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip &>>${log_file}
