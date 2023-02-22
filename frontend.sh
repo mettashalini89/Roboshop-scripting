@@ -6,7 +6,7 @@ print_head(){
   echo -e "\e[35m $1 \e[0m"
 }
 
-print_head "\e[35m Installing Nginx \e[0m"
+print_head "35m Installing Nginx"
 yum install nginx -y &>>${log_file}
 
 print_head -e "remove old content if any"
