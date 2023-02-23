@@ -9,11 +9,19 @@ yum install nodejs -y &>>${log_file}
 status_check $?
 
 print_head "Add app user roboshop"
-useradd roboshop &>>${log_file}
+id roboshop &>>${log_file} #if user roboshop doesnt exit then add user
+if [ $? -ne 0 ]; then
+  useradd roboshop &>>${log_file}
+fi
 status_check $?
 
 print_head "Add a app directory"
-mkdir /app &>>${log_file}
+if [ ! -d /app ]; then  #if app directory/folder doesnt exist then add /app directory
+  mkdir /app &>>${log_file}
+fi
+status_check $?
+
+print_head "remove old content if any"
 rm -rf /app/* &>>${log_file}
 status_check $?
 
