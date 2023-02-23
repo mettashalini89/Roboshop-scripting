@@ -3,6 +3,7 @@ source common.sh
 print_head "prepare mongo repo"
 cp ${code_dir}/Config/mongodb.repo /etc/yum.repos.d/mongo.repo &>>${log_file}
 
+
 print_head "install mongodb"
 yum install mongodb-org -y &>>${log_file}
 
