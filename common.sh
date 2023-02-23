@@ -11,5 +11,6 @@ status_check(){
     echo Success
   else
     echo Failure
+    exit 1 #exit command is to exit the execution and 0 is its default value, to remove confusion(as exit status 0 is success) we can give no as 1 here.
   fi
 }
