@@ -15,7 +15,7 @@ status_check(){
   fi
 }
 
-NodeJS(){
+NODEJS(){
   print_head "setup NodeJs repo"
   curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>${log_file}
   status_check $?
