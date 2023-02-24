@@ -34,7 +34,7 @@ schema_setup(){
     status_check $?
 
     print_head "load mysql schema"
-    mysql -h mysql.devopsb71.live -uroot -p${mysql_root_passwd} < /app/schema/{component}.sql  &>>${log_file}
+    mysql -h mysql.devopsb71.live -uroot -p${mysql_root_passwd} < /app/schema/shipping.sql  &>>${log_file}
     status_check $?
   fi
 }
