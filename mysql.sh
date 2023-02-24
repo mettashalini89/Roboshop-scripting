@@ -6,27 +6,27 @@ if [ -z "${mysql_root_passwd}" ]; then
 fi
 
 print_head "Disabling sql8"
-dnf module disable mysql -y
+dnf module disable mysql -y &>>${log_file}
 status_check $?
 
 print_head "setup sql5.7 repo"
-cp ${code_dir}/Config/mysql.repo /etc/yum.repos.d/mysql.repo
+cp ${code_dir}/Config/mysql.repo /etc/yum.repos.d/mysql.repo &>>${log_file}
 status_check $?
 
 print_head "Install Mysql"
-yum install mysql-community-server -y
+yum install mysql-community-server -y &>>${log_file}
 status_check $?
 
 print_head "enable MySQL Service"
-systemctl enable mysqld
+systemctl enable mysqld &>>${log_file}
 status_check $?
 
 print_head "Start MySQL Service"
-systemctl start mysqld
+systemctl start mysqld &>>${log_file}
 status_check $?
 
 print_head "Set use password to RoboShop@1"
-mysql_secure_installation --set-root-pass ${mysql_root_passwd}
+mysql_secure_installation --set-root-pass ${mysql_root_passwd} &>>${log_file}
 status_check $?
 
 
