@@ -25,8 +25,11 @@ print_head "Start MySQL Service"
 systemctl start mysqld &>>${log_file}
 status_check $?
 
-print_head "Set use password to RoboShop@1"
-mysql_secure_installation --set-root-pass ${mysql_root_passwd} &>>${log_file}
+print_head "Set default password to RoboShop@1"
+echo show databases | mysql -uroot -p${mysql_root_passwd} &>>${log_file}
+if [ $? -ne 0 ]; then
+  mysql_secure_installation --set-root-pass ${mysql_root_passwd} &>>${log_file}
+fi
 status_check $?
 
 
