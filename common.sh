@@ -126,3 +126,17 @@ java(){
     systemd_setup
 
 }
+
+python(){
+    print_head "Install Python 3.6"
+    yum install python36 gcc python3-devel -y &>>${log_file}
+    status_check $?
+
+    app_prereq_setup
+
+    print_head "Download the dependencies"
+    pip3.6 install -r requirements.txt &>>${log_file}
+    status_check $?
+
+    systemd_setup
+}
